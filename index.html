@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Word Translator</title>
-        <link rel="stylesheet" type="" href="style.css">
-    </head>
-    <body>
-        <h1>Word Translator</h1>
-        <a href="word_Translator.html"><button>Comenzar</button></a>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Translator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="translator.js"></script>
+</head>
+<body>
+    <h1 id="word"></h1>
+    <p id="result"></p>
+    <!-- <br> -->
+    <form id="wordForm">
+      <input type="text" id="inputWord" placeholder="Escribe la palabra" />
+      <br>
+      <button onclick="verificarPalabra()">Verificar</button>
+    </form>
+</body>
 </html>
 
 

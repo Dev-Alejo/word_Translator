@@ -1,10 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #50727B;
   }
   
   h1 {
     font-size: 48px;
+    font-weight: bold;
     margin-top: 80px;
   }
   
@@ -14,5 +16,17 @@ body {
     margin-top: 40px;
   }
 
+  input[type="text"] {
+    font-size: 18px;
+    padding: 8px;
+    width: 200px;
+    margin-top: 20px;
+  }
+  
+  #result {
+    font-size: 22px;
+    margin-top: 10px;
+  }
 
+  
   
