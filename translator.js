@@ -28,15 +28,15 @@ function palabraRandom(palabras, palabrasMostradas) {
   var palabrasNoMostradas = palabrasKeys.filter(palabra => !palabrasMostradas.includes(palabra));
 
   if (palabrasNoMostradas.length === 0) {
-    // Si no hay palabras no mostradas, reiniciar el registro de palabras mostradas
     palabrasMostradas.length = 0;
-    palabrasNoMostradas = shuffle(palabrasKeys); // Barajar aleatoriamente todas las palabras
+    palabrasNoMostradas = shuffle(palabrasKeys);
   }
 
-  var palabra_espanol = palabrasNoMostradas[0];
+  var randomIndex = Math.floor(Math.random() * palabrasNoMostradas.length);
+  var palabra_espanol = palabrasNoMostradas[randomIndex];
   var traduccion_ingles = palabras[palabra_espanol];
 
-  palabrasNoMostradas.splice(0, 1); // Eliminar la palabra seleccionada del array de palabras no mostradas
+  palabrasNoMostradas.splice(randomIndex, 1);
 
   return [palabra_espanol, traduccion_ingles];
 }
@@ -55,7 +55,7 @@ function iniciarJuego() {
   palabrasJson('palabras.json')
     .then(data => {
       palabras = data;
-      palabrasMostradas = shuffle(Object.keys(palabras)); // Barajar aleatoriamente todas las palabras
+      palabrasMostradas = shuffle(Object.keys(palabras));
       siguientePalabra();
     })
     .catch(error => {
@@ -65,19 +65,17 @@ function iniciarJuego() {
 
 function siguientePalabra() {
   var resultDisplay = document.getElementById('result');
-  resultDisplay.textContent = ''; // Limpiar mensaje de resultado anterior
+  resultDisplay.textContent = '';
 
   if (palabrasMostradas.length === 0) {
-    // Si se han mostrado todas las palabras, barajar aleatoriamente nuevamente
     palabrasMostradas = shuffle(Object.keys(palabras));
   }
 
   [palabra_espanol, traduccion_ingles] = palabraRandom(palabras, palabrasMostradas);
-  palabrasMostradas.push(palabra_espanol);
   displayWord(palabra_espanol);
 
   var input = document.getElementById('inputWord');
-  input.value = ''; // Limpiar campo de texto
+  input.value = '';
 }
 
 function verificarPalabra() {
@@ -87,13 +85,13 @@ function verificarPalabra() {
   if (traduccion_usuario.toLowerCase() === traduccion_ingles.toLowerCase()) {
     resultDisplay.textContent = '¡Correcto!';
     setTimeout(function() {
-      resultDisplay.textContent = ''; // Limpiar mensaje después de un tiempo
+      resultDisplay.textContent = '';
       siguientePalabra();
-    }, 1000); // 1 segundo
+    }, 1000);
   } else {
     resultDisplay.textContent = `Incorrecto, la traducción es: ${traduccion_ingles}`;
     var input = document.getElementById('inputWord');
-    input.value = ''; // Limpiar campo de texto
+    input.value = '';
   }
 }
 
@@ -104,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var input = document.getElementById('inputWord');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que se recargue la página al enviar el formulario
+    event.preventDefault();
     verificarPalabra();
   });
 
@@ -114,5 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
 
 
