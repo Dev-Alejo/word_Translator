@@ -18,5 +18,26 @@
   "tres": "three",
   "cuatro": "four",
   "cinco": "five",
-  "pelota": "ball"
+  "pelota": "ball",
+
+  "tiempo": "time",
+  "feliz": "happy",
+  "triste": "sad",
+  "canción": "song",
+  "bueno": "good",
+  "malo": "bad",
+  "mañana": "morning",
+  "tarde": "afternoon",
+  "noche": "night",
+  "naranja": "orange",
+  "amarillo": "yellow",
+  "blanco": "white",
+  "negro": "black",
+  "clase": "class",
+  "escuela": "school",
+  "familia": "family",
+  "hermano": "brother",
+  "hermana": "sister",
+  "padre": "father",
+  "madre": "mother"
 }

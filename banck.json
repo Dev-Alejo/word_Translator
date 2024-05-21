@@ -1,5 +1,5 @@
 {
-    "tiempo": "time",
+  "tiempo": "time",
   "feliz": "happy",
   "triste": "sad",
   "canción": "song",
@@ -19,6 +19,7 @@
   "hermana": "sister",
   "padre": "father",
   "madre": "mother",
+
   "abuelo": "grandfather",
   "abuela": "grandmother",
   "comer": "eat",
@@ -39,6 +40,7 @@
   "amor": "love",
   "odio": "hate",
   "risa": "laughter",
+
   "llanto": "tears",
   "sueño": "dream",
   "música": "music",
@@ -59,6 +61,7 @@
   "autobús": "bus",
   "bicicleta": "bicycle",
   "barco": "boat",
+
   "ciudad": "city",
   "país": "country",
   "montaña": "mountain",
@@ -80,6 +83,7 @@
   "generoso": "generous",
   "hábil": "skilled",
   "inocente": "innocent",
+
   "juguetón": "playful",
   "largo": "long",
   "mágico": "magical",
@@ -101,6 +105,7 @@
   "jardín": "garden",
   "kilo": "kilogram",
   "lápiz": "pencil",
+
   "maleta": "suitcase",
   "océano": "ocean",
   "perfume": "perfume",
@@ -122,6 +127,7 @@
   "isla": "island",
   "juguete": "toy",
   "kilómetro": "kilometer",
+
   "mesa": "table",
   "nube": "cloud",
   "ojo": "eye",
@@ -143,6 +149,7 @@
   "felicidad": "happiness",
   "hermoso": "beautiful",
   "invierno": "winter",
+
   "joven": "young",
   "luz": "light",
   "mariposa": "butterfly",
@@ -164,6 +171,7 @@
   "intenso": "intense",
   "juventud": "youth",
   "oasis": "oasis",
+
   "quietud": "stillness",
   "resplandor": "glow",
   "sabiduría": "wisdom",
@@ -185,6 +193,7 @@
   "nobleza": "nobility",
   "optimismo": "optimism",
   "paciencia": "patience",
+
   "respeto": "respect",
   "único": "unique",
   "valentía": "bravery",
@@ -206,6 +215,7 @@
   "ayudar": "help",
   "bailar": "dance",
   "buscar": "search",
+
   "caminar": "walk",
   "celebrar": "celebrate",
   "cocinar": "cook",
@@ -227,6 +237,7 @@
   "dirigir": "lead",
   "disfrutar": "enjoy",
   "empezar": "begin",
+
   "enseñar": "teach",
   "escuchar": "listen",
   "escribir": "write",
@@ -248,6 +259,7 @@
   "observar": "observe",
   "obtener": "obtain",
   "ofrecer": "offer",
+
   "olvidar": "forget",
   "organizar": "organize",
   "pensar": "think",
@@ -269,6 +281,7 @@
   "abrazar": "hug",
   "abrir": "open",
   "amar": "love",
+
   "aplaudir": "applaud",
   "arrancar": "start",
   "arrojar": "throw",
@@ -290,6 +303,7 @@
   "gritar": "shout",
   "guardar": "save",
   "guiar": "guide",
+
   "invadir": "invade",
   "llamar": "call",
   "luchar": "fight",
@@ -311,6 +325,7 @@
   "cuando": "when",
   "donde": "where",
   "como": "as",
+
   "por": "by",
   "para": "for",
   "ni": "nor",
@@ -332,6 +347,7 @@
   "consecuencia": "consequence",
   "otro": "other",
   "lado": "side",
+
   "supuesto": "of course",
   "propósito": "purpose",
   "resumen": "summary",
@@ -353,6 +369,7 @@
   "es": "is",
   "decir": "to say",
   "realidad": "reality",
+
   "suerte": "luck",
   "desgracia": "misfortune",
   "opinión": "opinion",
@@ -374,6 +391,7 @@
   "su": "his/her/their/your",
   "turno": "turn",
   "contrario": "opposite",
+
   "básicamente": "basically",
   "relación": "relation",
   "hecho": "fact",
@@ -395,6 +413,7 @@
   "dónde": "where",
   "por qué": "why",
   "para qué": "for what",
+
   "cómo estás": "how are you",
   "con": "with",
   "sobre": "about, on",
@@ -416,6 +435,7 @@
   "diferente": "different",
   "todos": "all",
   "algunos": "some",
+
   "mucho": "much, many",
   "poco": "little, few",
   "ningún": "no, none",
@@ -437,6 +457,7 @@
   "lo siento": "i'm sorry",
   "cansado": "tired",
   "aburrido": "bored",
+
   "emocionado": "excited",
   "enojado": "angry",
   "enfermo": "sick",
@@ -458,6 +479,7 @@
   "soñando": "dreaming",
   "más grandes": "bigger",
   "cosas": "things",
+
   "quiero": "want",
   "atrás": "behind",
   "señor": "sir",
@@ -479,6 +501,7 @@
   "estaban": "were",
   "riendo": "laughing",
   "mi": "my",
+
   "clases": "classes",
   "yo": "I",
   "estaba": "was",
@@ -500,6 +523,7 @@
   "sonriendo": "smiling",
   "desde": "from",
   "escenario": "stage",
+  
   "estabas": "were",
   "aplaudiendo": "clapping",
   "nariz": "nose",
