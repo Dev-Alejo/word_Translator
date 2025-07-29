@@ -1,113 +1,86 @@
 function palabrasJson(archivo) {
-  return new Promise((resolve, reject) => {
-    fetch(archivo)
-      .then(response => response.json())
-      .then(data => resolve(data))
-      .catch(error => reject(error));
-  });
+  return fetch(archivo).then(res => res.json());
 }
 
 function shuffle(array) {
-  var currentIndex = array.length;
-  var temporaryValue, randomIndex;
-
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
-
   return array;
 }
 
-function palabraRandom(palabras, palabrasMostradas) {
-  var palabrasKeys = Object.keys(palabras);
-  var palabrasNoMostradas = palabrasKeys.filter(palabra => !palabrasMostradas.includes(palabra));
-
-  if (palabrasNoMostradas.length === 0) {
-    palabrasMostradas.length = 0;
-    palabrasNoMostradas = shuffle(palabrasKeys);
-  }
-
-  var randomIndex = Math.floor(Math.random() * palabrasNoMostradas.length);
-  var palabra_espanol = palabrasNoMostradas[randomIndex];
-  var traduccion_ingles = palabras[palabra_espanol];
-
-  palabrasNoMostradas.splice(randomIndex, 1);
-
-  return [palabra_espanol, traduccion_ingles];
-}
-
-var palabras;
-var palabra_espanol;
-var traduccion_ingles;
-var palabrasMostradas = [];
+let palabras = {};
+let palabrasBarajadas = [];
+let indiceActual = 0;
 
 function displayWord(palabra) {
-  var wordDisplay = document.getElementById('word');
-  wordDisplay.textContent = palabra;
+  document.getElementById('word').textContent = palabra;
 }
 
 function iniciarJuego() {
   palabrasJson('palabras.json')
     .then(data => {
       palabras = data;
-      palabrasMostradas = shuffle(Object.keys(palabras));
+      palabrasBarajadas = shuffle(Object.keys(palabras));
+      indiceActual = 0;
       siguientePalabra();
     })
-    .catch(error => {
-      console.error(error);
-    });
+    .catch(console.error);
 }
 
 function siguientePalabra() {
-  var resultDisplay = document.getElementById('result');
+  const resultDisplay = document.getElementById('result');
   resultDisplay.textContent = '';
 
-  if (palabrasMostradas.length === 0) {
-    palabrasMostradas = shuffle(Object.keys(palabras));
+  if (indiceActual >= palabrasBarajadas.length) {
+    palabrasBarajadas = shuffle(Object.keys(palabras));
+    indiceActual = 0;
   }
 
-  [palabra_espanol, traduccion_ingles] = palabraRandom(palabras, palabrasMostradas);
-  displayWord(palabra_espanol);
+  const palabra_es = palabrasBarajadas[indiceActual];
+  const traduccion_en = palabras[palabra_es];
 
-  var input = document.getElementById('inputWord');
-  input.value = '';
+  displayWord(palabra_es);
+  document.getElementById('inputWord').value = '';
+
+  // Guarda para comparación
+  window.palabraActual = {
+    espanol: palabra_es,
+    ingles: traduccion_en
+  };
+
+  indiceActual++;
 }
 
 function verificarPalabra() {
-  var traduccion_usuario = document.getElementById('inputWord').value;
-  var resultDisplay = document.getElementById('result');
+  const input = document.getElementById('inputWord');
+  const resultDisplay = document.getElementById('result');
+  const traduccionUsuario = input.value.trim().toLowerCase();
+  const respuestaCorrecta = window.palabraActual.ingles.toLowerCase();
 
-  if (traduccion_usuario.toLowerCase() === traduccion_ingles.toLowerCase()) {
+  if (traduccionUsuario === respuestaCorrecta) {
     resultDisplay.textContent = '¡Correcto!';
-    setTimeout(function() {
-      resultDisplay.textContent = '';
-      siguientePalabra();
-    }, 1000);
+    setTimeout(siguientePalabra, 1000);
   } else {
-    resultDisplay.textContent = `Incorrecto, la traducción es: ${traduccion_ingles}`;
-    var input = document.getElementById('inputWord');
+    resultDisplay.textContent = `Incorrecto, la traducción es: ${window.palabraActual.ingles}`;
     input.value = '';
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   iniciarJuego();
 
-  var form = document.getElementById('wordForm');
-  var input = document.getElementById('inputWord');
+  const form = document.getElementById('wordForm');
+  const input = document.getElementById('inputWord');
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+  form.addEventListener('submit', e => {
+    e.preventDefault();
     verificarPalabra();
   });
 
-  input.addEventListener('keyup', function(event) {
-    if (event.key === 'Enter') {
+  input.addEventListener('keyup', e => {
+    if (e.key === 'Enter') {
       verificarPalabra();
     }
   });
